@@ -1,4 +1,8 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/zfapngso/public_html/
+<<<<<<< HEAD
     - /bin/cp -R * $DEPLOYPATH
+=======
+    - /bin/cp -R * $DEPLOYPATH
+>>>>>>> 8980e875e1613e5e99d8939c349e4ed6576219cc
