@@ -26,7 +26,7 @@ export const legacyMarkup = String.raw`
     <section class="aboutus-showcase">
       <div class="aboutus-showcase-copy">
         <div class="aboutus-showcase-kicker">About ZF Apparel</div>
-        <h1 class="aboutus-showcase-title">reliable Manufacturing for Global Apparel Brands.</h1>
+        <h1 class="aboutus-showcase-title">eeliable Manufacturing for Global Apparel Brands.</h1>
         <p class="aboutus-showcase-text">As a reliable and farsighted garments manufacturing and export company, ZF Apparel delivers high quality knitwear and woven garments for international brands with precision, consistency, and long-term partnership thinking.</p>
         <div class="aboutus-showcase-actions">
           <button class="aboutus-showcase-btn aboutus-showcase-btn-primary" type="button" onclick="showPage('collections')">Quality & Compliance</button>
