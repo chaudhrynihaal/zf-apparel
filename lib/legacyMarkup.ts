@@ -1,14 +1,14 @@
 export const legacyMarkup = String.raw`
 <!-- NAVIGATION -->
   <nav id="mainNav" class="light">
-    <div class="nav-logo" onclick="showPage('aboutus')">ZF APPAREL</div>
+    <button class="nav-logo nav-logo-btn" type="button" onclick="showPage('aboutus')">ZF APPAREL</button>
     <div class="nav-links">
-      <a onclick="showPage('aboutus')" id="nav-aboutus" class="active-link">About Us</a>
-      <a onclick="showPage('collections')" id="nav-collections">Quality & Compliance</a>
-      <a onclick="showPage('craftsmanship')" id="nav-craftsmanship">Inside ZF Apparel</a>
-      <a onclick="showPage('about')" id="nav-about">Manufacturing Capabilities</a>
-      <a onclick="showPage('contact')" id="nav-contact">Contact</a>
-      <a onclick="showPage('prototype')" class="mobile-only-link">Send Inquiry</a>
+      <button type="button" onclick="showPage('aboutus')" id="nav-aboutus" class="nav-link active-link">About Us</button>
+      <button type="button" onclick="showPage('collections')" id="nav-collections" class="nav-link">Quality & Compliance</button>
+      <button type="button" onclick="showPage('craftsmanship')" id="nav-craftsmanship" class="nav-link">Inside ZF Apparel</button>
+      <button type="button" onclick="showPage('about')" id="nav-about" class="nav-link">Manufacturing Capabilities</button>
+      <button type="button" onclick="showPage('contact')" id="nav-contact" class="nav-link">Contact</button>
+      <button type="button" onclick="showPage('prototype')" class="nav-link mobile-only-link">Send Inquiry</button>
     </div>
     <div class="nav-actions">
       <button id="mobileNavToggle" class="mobile-nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
@@ -128,10 +128,10 @@ export const legacyMarkup = String.raw`
     <footer class="light">
       <div class="footer-logo">ZF Apparel</div>
       <div class="footer-links">
-        <a>Privacy Policy</a>
-        <a>Terms of Service</a>
-        <a>Sustainability Report</a>
-        <a>Global Logistics</a>
+        <span class="footer-link-label">Privacy Policy</span>
+        <span class="footer-link-label">Terms of Service</span>
+        <span class="footer-link-label">Sustainability Report</span>
+        <span class="footer-link-label">Global Logistics</span>
       </div>
       <div class="footer-copy">© 2024 ZF Apparel Manufacturing. All rights reserved.</div>
     </footer>
@@ -147,13 +147,13 @@ export const legacyMarkup = String.raw`
       </div>
       <div class="certification-ribbon-grid">
         <div class="certification-card">
-          <img src="/assets/certifications/sedex.png" alt="Sedex certification logo" class="certification-logo certification-logo-sedex"/>
+          <img src="/assets/certifications/sedex.png" alt="Sedex certification logo" class="certification-logo certification-logo-sedex" loading="lazy" decoding="async"/>
         </div>
         <div class="certification-card">
-          <img src="/assets/certifications/is0.png" alt="ISO 9001 certification logo" class="certification-logo certification-logo-iso"/>
+          <img src="/assets/certifications/is0.png" alt="ISO 9001 certification logo" class="certification-logo certification-logo-iso" loading="lazy" decoding="async"/>
         </div>
         <div class="certification-card">
-          <img src="/assets/certifications/bci.png" alt="Better Cotton Initiative certification logo" class="certification-logo certification-logo-bci"/>
+          <img src="/assets/certifications/bci.png" alt="Better Cotton Initiative certification logo" class="certification-logo certification-logo-bci" loading="lazy" decoding="async"/>
         </div>
       </div>
     </section>
@@ -172,13 +172,13 @@ export const legacyMarkup = String.raw`
     <section class="category-feature">
       <div class="cat-image">
         <!-- Drop your product photo here. Until then, placeholder shows. -->
-        <img src="/assets/collection-hero.jpg" alt="Heavy Gauge Knit" class="cat-img"/>
+        <img src="/assets/collection-hero.jpg" alt="Heavy Gauge Knit" class="cat-img" loading="lazy" decoding="async"/>
       </div>
       <div class="cat-info">
         <div class="cat-label">Product Focus / Knitwear</div>
         <h2 class="cat-title">T-Shirts, Polos,<br>Hoodies & More</h2>
         <p class="cat-subtitle">From custom designs to bulk production, we provide end-to-end apparel manufacturing tailored to your requirements.</p>
-        <div class="view-btn" onclick="showPage('about'); setTimeout(function(){ var section = document.getElementById('capPortfolio'); if (section) section.scrollIntoView({ behavior: 'smooth' }); }, 120);">View Collection</div>
+        <button class="view-btn" type="button" onclick="showPage('about'); setTimeout(function(){ var section = document.getElementById('capPortfolio'); if (section) section.scrollIntoView({ behavior: 'smooth' }); }, 120);">View Collection</button>
       </div>
     </section>
 
@@ -189,22 +189,22 @@ export const legacyMarkup = String.raw`
       </div>
       <div class="brand-ribbon-marquee">
         <div class="brand-ribbon-track">
-          <div class="brand-chip"><img src="/assets/brands/raay-atelier.png" alt="RAAY Atelier logo"/></div>
-          <div class="brand-chip"><img src="/assets/brands/layla-boutique.png" alt="Layla Boutique logo"/></div>
-          <div class="brand-chip"><img src="/assets/brands/fiza-apparel-pakistan.png" alt="FIZA Apparel Pakistan logo"/></div>
-          <div class="brand-chip"><img src="/assets/brands/armaan-finest-clothing.png" alt="ARMAAN Finest Clothing logo"/></div>
-          <div class="brand-chip"><img src="/assets/brands/zariya-couture.png" alt="ZARIYA Couture logo"/></div>
-          <div class="brand-chip"><img src="/assets/brands/sariyah-luxury-textiles.png" alt="Sariyah Luxury Textiles logo"/></div>
-          <div class="brand-chip"><img src="/assets/brands/noor-noor-and-co-fashion-house.png" alt="NOOR Noor and Co. Fashion House logo"/></div>
-          <div class="brand-chip"><img src="/assets/brands/khayal-apparel.png" alt="KHAYAL Apparel logo"/></div>
-          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/raay-atelier.png" alt=""/></div>
-          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/layla-boutique.png" alt=""/></div>
-          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/fiza-apparel-pakistan.png" alt=""/></div>
-          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/armaan-finest-clothing.png" alt=""/></div>
-          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/zariya-couture.png" alt=""/></div>
-          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/sariyah-luxury-textiles.png" alt=""/></div>
-          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/noor-noor-and-co-fashion-house.png" alt=""/></div>
-          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/khayal-apparel.png" alt=""/></div>
+          <div class="brand-chip"><img src="/assets/brands/raay-atelier.png" alt="RAAY Atelier logo" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip"><img src="/assets/brands/layla-boutique.png" alt="Layla Boutique logo" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip"><img src="/assets/brands/fiza-apparel-pakistan.png" alt="FIZA Apparel Pakistan logo" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip"><img src="/assets/brands/armaan-finest-clothing.png" alt="ARMAAN Finest Clothing logo" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip"><img src="/assets/brands/zariya-couture.png" alt="ZARIYA Couture logo" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip"><img src="/assets/brands/sariyah-luxury-textiles.png" alt="Sariyah Luxury Textiles logo" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip"><img src="/assets/brands/noor-noor-and-co-fashion-house.png" alt="NOOR Noor and Co. Fashion House logo" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip"><img src="/assets/brands/khayal-apparel.png" alt="KHAYAL Apparel logo" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/raay-atelier.png" alt="" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/layla-boutique.png" alt="" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/fiza-apparel-pakistan.png" alt="" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/armaan-finest-clothing.png" alt="" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/zariya-couture.png" alt="" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/sariyah-luxury-textiles.png" alt="" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/noor-noor-and-co-fashion-house.png" alt="" loading="lazy" decoding="async"/></div>
+          <div class="brand-chip" aria-hidden="true"><img src="/assets/brands/khayal-apparel.png" alt="" loading="lazy" decoding="async"/></div>
         </div>
       </div>
     </section>
@@ -220,7 +220,7 @@ export const legacyMarkup = String.raw`
 
     <!-- BLAZER FULL-WIDTH BANNER — handles real images cleanly -->
 <section class="blazer-banner">
-  <img src="/assets/banner-feature.jpeg" alt="Featured Piece" class="blazer-banner-img"/>
+  <img src="/assets/banner-feature.jpeg" alt="Featured Piece" class="blazer-banner-img" loading="lazy" decoding="async"/>
   <div class="blazer-text-wrap">
     <button
       class="blazer-link"
@@ -240,7 +240,7 @@ export const legacyMarkup = String.raw`
       <div>
         <p class="cta-desc">We build long-term partnerships rooted in quality, consistency, trust, and competitive pricing.</p>
         <div class="email-input-wrap">
-          <input id="ctaEmail" type="email" placeholder="Enter Work Email">
+          <input id="ctaEmail" type="email" placeholder="Enter Work Email" required>
           <button id="ctaEmailSubmit" class="email-arrow" type="button" aria-label="Submit work email">→</button>
         </div>
         <div id="ctaEmailStatus" class="form-status cta-status" aria-live="polite"></div>
@@ -250,10 +250,10 @@ export const legacyMarkup = String.raw`
     <footer class="light">
       <div class="footer-logo">ZF Apparel</div>
       <div class="footer-links">
-        <a>Privacy Policy</a>
-        <a>Terms of Service</a>
-        <a>Sustainability Report</a>
-        <a>Global Logistics</a>
+        <span class="footer-link-label">Privacy Policy</span>
+        <span class="footer-link-label">Terms of Service</span>
+        <span class="footer-link-label">Sustainability Report</span>
+        <span class="footer-link-label">Global Logistics</span>
       </div>
       <div class="footer-copy">© 2024 ZF Apparel Manufacturing. All rights reserved.</div>
     </footer>
@@ -362,7 +362,7 @@ export const legacyMarkup = String.raw`
         </div>
       </div>
       <div class="tour-media">
-        <img id="tourImage" src="/assets/tour/stop-1.jpeg" alt="Factory tour view">
+        <img id="tourImage" src="/assets/tour/stop-1.jpeg" alt="Factory tour view" loading="lazy" decoding="async">
       </div>
       <div class="tour-controls">
         <div class="tour-buttons">
@@ -376,10 +376,10 @@ export const legacyMarkup = String.raw`
     <footer class="light">
       <div class="footer-logo">ZF Apparel</div>
       <div class="footer-links">
-        <a>Privacy Policy</a>
-        <a>Terms of Service</a>
-        <a>Sustainability Report</a>
-        <a>Global Logistics</a>
+        <span class="footer-link-label">Privacy Policy</span>
+        <span class="footer-link-label">Terms of Service</span>
+        <span class="footer-link-label">Sustainability Report</span>
+        <span class="footer-link-label">Global Logistics</span>
       </div>
       <div class="footer-copy">© 2024 ZF Apparel Manufacturing. All rights reserved.</div>
     </footer>
@@ -388,7 +388,7 @@ export const legacyMarkup = String.raw`
   <!-- ==================== PAGE 3: ABOUT/SOURCING ==================== -->
   <div id="about" class="page">
     <section class="cap-hero">
-      <img src="/assets/prototype.png" alt="Manufacturing background" class="cap-hero-bg"/>
+      <img src="/assets/prototype.png" alt="Manufacturing background" class="cap-hero-bg" loading="lazy" decoding="async"/>
       <div class="cap-hero-content">
         <div class="cap-kicker">Global Production Standard</div>
         <h1 class="cap-title">Manufacturing<br>Mastery.</h1>
@@ -404,24 +404,24 @@ export const legacyMarkup = String.raw`
       <div class="cap-portfolio-kicker">Our Production Portfolio</div>
       <h2 class="cap-portfolio-title">Manufacturing Capabilities Across Product Lines.</h2>
       <div class="cap-products-grid">
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/signature-polo.jpg" alt="Signature Polo"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/contemporary-graphic-tee.jpg" alt="Contemporary Graphic Tee"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/tailored-outerwear.jpg" alt="Tailored Outerwear"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/essential-apparel.jpg" alt="Essential Apparel"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/precision-polo.jpg" alt="Precision Polo"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/heritage-polo.jpg" alt="Heritage Polo"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/premium-crew.jpg" alt="Premium Crew"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/kids-varsity.jpg" alt="Kids Varsity"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/collection-hero.jpg" alt="Graphic Street Tee"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/utility-work-shirt.jpg" alt="Utility Work Shirt"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/classic-hoodie.jpg" alt="Classic Hoodie"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/performance-sweatshirt.jpg" alt="Performance Sweatshirt"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/modern-layered-top.jpg" alt="Modern Layered Top"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/everyday-fleece.jpg" alt="Everyday Fleece"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/contemporary-basic.jpg" alt="Contemporary Basic"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/export-casualwear.jpg" alt="Export Casualwear"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/printed-fashion-tee.jpg" alt="Printed Fashion Tee"/></div></article>
-        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/ready-to-scale-apparel.jpg" alt="Ready-to-Scale Apparel"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/signature-polo.jpg" alt="Signature Polo" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/contemporary-graphic-tee.jpg" alt="Contemporary Graphic Tee" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/tailored-outerwear.jpg" alt="Tailored Outerwear" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/essential-apparel.jpg" alt="Essential Apparel" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/precision-polo.jpg" alt="Precision Polo" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/heritage-polo.jpg" alt="Heritage Polo" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/premium-crew.jpg" alt="Premium Crew" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/kids-varsity.jpg" alt="Kids Varsity" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/collection-hero.jpg" alt="Graphic Street Tee" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/utility-work-shirt.jpg" alt="Utility Work Shirt" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/classic-hoodie.jpg" alt="Classic Hoodie" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/performance-sweatshirt.jpg" alt="Performance Sweatshirt" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/modern-layered-top.jpg" alt="Modern Layered Top" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/everyday-fleece.jpg" alt="Everyday Fleece" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/contemporary-basic.jpg" alt="Contemporary Basic" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/export-casualwear.jpg" alt="Export Casualwear" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/printed-fashion-tee.jpg" alt="Printed Fashion Tee" loading="lazy" decoding="async"/></div></article>
+        <article class="cap-product-card"><div class="cap-product-media"><img src="/assets/products/ready-to-scale-apparel.jpg" alt="Ready-to-Scale Apparel" loading="lazy" decoding="async"/></div></article>
       </div>
     </section>
 
@@ -438,10 +438,10 @@ export const legacyMarkup = String.raw`
     <footer class="light">
       <div class="footer-logo">ZF Apparel</div>
       <div class="footer-links">
-        <a>Privacy Policy</a>
-        <a>Terms of Service</a>
-        <a>Sustainability Report</a>
-        <a>Global Logistics</a>
+        <span class="footer-link-label">Privacy Policy</span>
+        <span class="footer-link-label">Terms of Service</span>
+        <span class="footer-link-label">Sustainability Report</span>
+        <span class="footer-link-label">Global Logistics</span>
       </div>
       <div class="footer-copy">© 2024 ZF Apparel Manufacturing. All rights reserved.</div>
     </footer>
@@ -482,15 +482,15 @@ export const legacyMarkup = String.raw`
         <div class="form-grid">
           <div class="form-field">
             <div class="field-label">Project Identity</div>
-            <input id="prototypeProject" class="field-input" type="text" placeholder="e.g. Graphic Tees / Polo Drop">
+            <input id="prototypeProject" class="field-input" type="text" placeholder="e.g. Graphic Tees / Polo Drop" required>
           </div>
           <div class="form-field">
             <div class="field-label">Representative Name</div>
-            <input id="prototypeName" class="field-input" type="text" placeholder="Your full name">
+            <input id="prototypeName" class="field-input" type="text" placeholder="Your full name" required>
           </div>
           <div class="form-field">
             <div class="field-label">Email Address</div>
-            <input id="prototypeEmail" class="field-input" type="email" placeholder="info@zfapparel.pk">
+            <input id="prototypeEmail" class="field-input" type="email" placeholder="info@zfapparel.pk" required>
           </div>
           <div class="form-field">
             <div class="field-label">Global Brand / House</div>
@@ -511,7 +511,7 @@ export const legacyMarkup = String.raw`
           <div class="form-field full">
             <div class="field-label">Manufacturing Notes</div>
             <textarea id="prototypeNotes" class="field-textarea"
-              placeholder="Share style details, quantity target, and customization requirements..."></textarea>
+              placeholder="Share style details, quantity target, and customization requirements..." required></textarea>
           </div>
         </div>
 
@@ -535,10 +535,10 @@ export const legacyMarkup = String.raw`
     <footer class="light">
       <div class="footer-logo">ZF Apparel</div>
       <div class="footer-links">
-        <a>Privacy Policy</a>
-        <a>Terms of Service</a>
-        <a>Sustainability Report</a>
-        <a>Global Logistics</a>
+        <span class="footer-link-label">Privacy Policy</span>
+        <span class="footer-link-label">Terms of Service</span>
+        <span class="footer-link-label">Sustainability Report</span>
+        <span class="footer-link-label">Global Logistics</span>
       </div>
       <div class="footer-copy">© 2024 ZF Apparel Manufacturing. All rights reserved.</div>
     </footer>
@@ -557,7 +557,7 @@ export const legacyMarkup = String.raw`
         <div class="contact-row">
           <div class="contact-field">
             <label>Full Name</label>
-            <input id="contactName" type="text" placeholder="Your full name">
+            <input id="contactName" type="text" placeholder="Your full name" required>
           </div>
           <div class="contact-field">
             <label>Company</label>
@@ -566,11 +566,11 @@ export const legacyMarkup = String.raw`
         </div>
         <div class="contact-field">
           <label>Email Address</label>
-          <input id="contactEmail" type="email" placeholder="info@zfapparel.pk">
+          <input id="contactEmail" type="email" placeholder="info@zfapparel.pk" required>
         </div>
         <div class="contact-field" style="margin-top:28px;">
           <label>Message</label>
-          <textarea id="contactMessage" placeholder="Describe product types, quantity range, and timeline expectations."></textarea>
+          <textarea id="contactMessage" placeholder="Describe product types, quantity range, and timeline expectations." required></textarea>
         </div>
         <button id="contactSubmit" class="submit-contact" type="button">Submit Inquiry</button>
         <div id="contactStatus" class="form-status" aria-live="polite"></div>
@@ -578,7 +578,7 @@ export const legacyMarkup = String.raw`
 
       <div class="contact-right">
         <div class="sewing-image">
-          <img src="/assets/contact-emblem.jpg" alt="ZF Apparel emblem" class="contact-photo"/>
+          <img src="/assets/contact-emblem.jpg" alt="ZF Apparel emblem" class="contact-photo" loading="lazy" decoding="async"/>
         </div>
         <div class="offices">
           <div class="office">
@@ -617,10 +617,10 @@ export const legacyMarkup = String.raw`
     <footer class="light">
       <div class="footer-logo">ZF Apparel</div>
       <div class="footer-links">
-        <a>Privacy Policy</a>
-        <a>Terms of Service</a>
-        <a>Sustainability Report</a>
-        <a>Global Logistics</a>
+        <span class="footer-link-label">Privacy Policy</span>
+        <span class="footer-link-label">Terms of Service</span>
+        <span class="footer-link-label">Sustainability Report</span>
+        <span class="footer-link-label">Global Logistics</span>
       </div>
       <div class="footer-copy">© 2024 ZF Apparel Manufacturing. All rights reserved.</div>
     </footer>

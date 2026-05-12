@@ -8,15 +8,6 @@ export const metadata: Metadata = {
     "ZF Apparel delivers luxury knitwear and woven garment manufacturing with a premium single-page brand experience.",
 };
 
-const themeScript = `
-  try {
-    const theme = localStorage.getItem("zf-theme") || "light";
-    document.body.classList.toggle("theme-dark", theme === "dark");
-  } catch (error) {
-    console.error(error);
-  }
-`;
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -31,7 +22,6 @@ export default function RootLayout({
         />
       </head>
       <body suppressHydrationWarning>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {children}
       </body>
     </html>

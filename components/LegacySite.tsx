@@ -78,6 +78,95 @@ export function LegacySite() {
       button.textContent = isBusy ? busyLabel : idleLabel;
     };
 
+    const clearFieldError = (
+      field: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null,
+    ) => {
+      if (!field) {
+        return;
+      }
+
+      field.setCustomValidity("");
+      field.removeAttribute("aria-invalid");
+    };
+
+    const setFieldError = (
+      field: HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null,
+      message: string,
+    ) => {
+      if (!field) {
+        return;
+      }
+
+      field.setCustomValidity(message);
+      field.setAttribute("aria-invalid", "true");
+    };
+
+    const validateFields = (
+      fields: Array<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>,
+      statusEl: HTMLElement | null,
+    ) => {
+      setFormStatus(statusEl, "", "idle");
+
+      for (const field of fields) {
+        clearFieldError(field);
+      }
+
+      for (const field of fields) {
+        if (!field) {
+          continue;
+        }
+
+        const value = field.value.trim();
+
+        if (field.hasAttribute("required") && !value) {
+          setFieldError(field, "Please fill out this field.");
+        } else if (
+          field instanceof HTMLInputElement &&
+          field.type === "email" &&
+          value &&
+          !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+        ) {
+          setFieldError(field, "Please enter a valid email address.");
+        }
+
+        if (!field.checkValidity()) {
+          setFormStatus(
+            statusEl,
+            "Please complete the required fields before submitting.",
+            "error",
+          );
+          field.reportValidity();
+          field.focus();
+          return false;
+        }
+      }
+
+      return true;
+    };
+
+    const registerValidationListeners = (
+      fields: Array<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement | null>,
+      statusEl: HTMLElement | null,
+    ) => {
+      fields.forEach((field) => {
+        if (!field) {
+          return;
+        }
+
+        const resetValidity = () => {
+          clearFieldError(field);
+
+          if (statusEl?.classList.contains("is-error")) {
+            setFormStatus(statusEl, "", "idle");
+          }
+        };
+
+        const eventName = field instanceof HTMLSelectElement ? "change" : "input";
+        field.addEventListener(eventName, resetValidity);
+        cleanupFns.push(() => field.removeEventListener(eventName, resetValidity));
+      });
+    };
+
     const submitToWeb3Forms = async (payload: Record<string, string>) => {
       if (!web3FormsAccessKey) {
         throw new Error(
@@ -115,16 +204,6 @@ export function LegacySite() {
       }
 
       return data;
-    };
-
-    const applyTheme = (theme: string) => {
-      const isDarkTheme = theme === "dark";
-      document.body.classList.toggle("theme-dark", isDarkTheme);
-      const toggle = getById<HTMLButtonElement>("themeToggle");
-
-      if (toggle) {
-        toggle.textContent = isDarkTheme ? "Light" : "Dark";
-      }
     };
 
     const renderTourStop = (index: number) => {
@@ -207,6 +286,7 @@ export function LegacySite() {
         const dot = document.createElement("button");
         dot.type = "button";
         dot.className = `tour-dot${index === 0 ? " active" : ""}`;
+        dot.setAttribute("aria-label", `Go to ${stop.label}`);
 
         const dotHandler = () => {
           tourIndex = index;
@@ -297,8 +377,8 @@ export function LegacySite() {
       nav.classList.add(isDark ? "dark" : "light");
       setMobileMenuOpen(false);
 
-      root.querySelectorAll(".nav-links a").forEach((anchor) => {
-        anchor.classList.remove("active-link");
+      root.querySelectorAll<HTMLElement>(".nav-links .nav-link").forEach((item) => {
+        item.classList.remove("active-link");
       });
 
       const navMap: Record<string, string | null> = {
@@ -328,25 +408,9 @@ export function LegacySite() {
     };
 
     window.showPage = showPage;
-
-    const savedTheme = window.localStorage.getItem(THEME_KEY) || "light";
-    applyTheme(savedTheme);
+    document.body.classList.remove("theme-dark");
+    window.localStorage.removeItem(THEME_KEY);
     showPage("aboutus");
-
-    const toggle = getById<HTMLButtonElement>("themeToggle");
-    const toggleHandler = () => {
-      const nextTheme = document.body.classList.contains("theme-dark")
-        ? "light"
-        : "dark";
-
-      applyTheme(nextTheme);
-      window.localStorage.setItem(THEME_KEY, nextTheme);
-    };
-
-    if (toggle) {
-      toggle.addEventListener("click", toggleHandler);
-      cleanupFns.push(() => toggle.removeEventListener("click", toggleHandler));
-    }
 
     const mobileToggleHandler = () => {
       setMobileMenuOpen(!nav?.classList.contains("mobile-open"));
@@ -376,9 +440,22 @@ export function LegacySite() {
     const prototypeCompany = getById<HTMLInputElement>("prototypeCompany");
     const prototypeCategory = getById<HTMLSelectElement>("prototypeCategory");
     const prototypeNotes = getById<HTMLTextAreaElement>("prototypeNotes");
+    const prototypeFields = [
+      prototypeProject,
+      prototypeName,
+      prototypeEmail,
+      prototypeCompany,
+      prototypeCategory,
+      prototypeNotes,
+    ];
+
+    registerValidationListeners(prototypeFields, prototypeStatus);
 
     const prototypeHandler = async () => {
-      setFormStatus(prototypeStatus, "", "idle");
+      if (!validateFields(prototypeFields, prototypeStatus)) {
+        return;
+      }
+
       setButtonState(
         prototypeSubmit,
         true,
@@ -460,9 +537,20 @@ export function LegacySite() {
     const contactCompany = getById<HTMLInputElement>("contactCompany");
     const contactEmail = getById<HTMLInputElement>("contactEmail");
     const contactMessage = getById<HTMLTextAreaElement>("contactMessage");
+    const contactFields = [
+      contactName,
+      contactCompany,
+      contactEmail,
+      contactMessage,
+    ];
+
+    registerValidationListeners(contactFields, contactStatus);
 
     const contactHandler = async () => {
-      setFormStatus(contactStatus, "", "idle");
+      if (!validateFields(contactFields, contactStatus)) {
+        return;
+      }
+
       setButtonState(contactSubmit, true, "Submit Inquiry", "Sending...");
 
       try {
@@ -519,9 +607,15 @@ export function LegacySite() {
     const ctaEmail = getById<HTMLInputElement>("ctaEmail");
     const ctaEmailSubmit = getById<HTMLButtonElement>("ctaEmailSubmit");
     const ctaEmailStatus = getById<HTMLElement>("ctaEmailStatus");
+    const ctaEmailFields = [ctaEmail];
+
+    registerValidationListeners(ctaEmailFields, ctaEmailStatus);
 
     const ctaEmailHandler = async () => {
-      setFormStatus(ctaEmailStatus, "", "idle");
+      if (!validateFields(ctaEmailFields, ctaEmailStatus)) {
+        return;
+      }
+
       setButtonState(ctaEmailSubmit, true, "→", "...");
 
       try {
